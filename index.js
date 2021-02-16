@@ -88,6 +88,12 @@ let ctabHint = document.querySelector(".hint .ctab");
 let ch1 = document.querySelector("#ch1");
 let ch2 = document.querySelector("#ch2");
 let ch3 = document.querySelector("#ch3");
+let btnNextg = document.querySelector(".goodChoice .btn");
+let btnNextw = document.querySelector(".wrongChoice .btn");
+
+
+
+const flow = new Flow (scenari);
 
 //FUNCTIONS
 
@@ -105,6 +111,10 @@ if (answerch === true){
 
     let gtxt = document.querySelector(".gtxt");
     gtxt.innerHTML = `${answertxt}`
+
+    flow.score = flow.score +1;
+
+
 } else {
     let wrongChoice = document.querySelector(".wrongChoice");
     wrongChoice.style.display = "block";
@@ -119,12 +129,15 @@ function printScenario (scenario) {
     let ch2 = document.querySelector("#ch2");
     let ch3 = document.querySelector("#ch3");
 
+    ch1.style.display = "block";
     ch1.style.bottom = scenario[0].y + "px";
     ch1.style.left = scenario[0].x + "px";
 
+    ch2.style.display = "block";
     ch2.style.bottom = scenario[1].y + "px";
     ch2.style.left = scenario[1].x + "px";
 
+    ch3.style.display = "block";
     ch3.style.bottom = scenario[2].y + "px";
     ch3.style.left = scenario[2].x + "px";
 
@@ -169,13 +182,29 @@ function printScenario (scenario) {
 
 // addEventListener
 
-
-
 btnStart.addEventListener('click', () => {
     let startmenu = document.querySelector("#startmenu");
     startmenu.style.display = "none";
 
-    printScenario(scenari[2]);
+    btnNextg.addEventListener('click', () =>{
+        
+        let goodChoice = document.querySelector(".goodChoice")
+        goodChoice.style.display = "none";
+
+        printScenario(flow.nextScenario());
+
+    });
+
+    btnNextw.addEventListener('click', () =>{
+        let wrongChoice = document.querySelector(".wrongChoice");
+        wrongChoice.style.display = "none";
+
+        printScenario(flow.nextScenario());
+    });
+
+    printScenario(flow.nextScenario())
+
+    
 });
 
 btnHtp.addEventListener('click', () => {
@@ -195,12 +224,11 @@ playHtp.addEventListener('click', () =>{
     printScenario(scenari[0])
 })
 
-
-
 ctabHint.addEventListener('click', () =>{
     let hint = document.querySelector(".hint");
     hint.style.display = "none"
 });
+
 
 
 
