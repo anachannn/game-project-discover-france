@@ -9,33 +9,34 @@
     <script type="module" src="index.js"></script>
   </head>
   <body>
-    <section class="title">
+    <header class="title">
       <!-- <img class="frflag" src="img/frFlag1.png"> -->
       <h1 class="nameGame">Discover France</h1>
-    </section>
+    </header>
 
-    <div>
-      <img class="map" src="img/mapFrance.png" alt="France" />
+    <div id="gameboard">
+        <img class="map" src="img/mapFrance.png" alt="France" />
+    
+        <div id="ch1" class="choice">
+          <img src="img/pointer.png" />
+        </div>
+        <div id="ch2" class="choice">
+          <img src="img/pointer.png" />
+        </div>
+        <div id="ch3" class="choice">
+          <img src="img/pointer.png" />
+        </div>
+
     </div>
 
-    <div>
-      <div id="ch1" class="choice">
-        <img src="img/pointer.png" />
-      </div>
-      <div id="ch2" class="choice">
-        <img src="img/pointer.png" />
-      </div>
-      <div id="ch3" class="choice">
-        <img src="img/pointer.png" />
-      </div>
-    </div>
+   
 
     <div id="startmenu">
       <img src="img/pointer.png" />
       <h2 class="btn">START</h2>
       <h2 class="btn">How to play</h2>
     </div>
-      <div class="htp">
+    <div class="htp">
         <p class="ctab">x</p>
         <h3>How to play</h3>
         <p>
@@ -43,13 +44,18 @@
           location by clicking on the right spot.
         </p>
         <p class="btn">PLAY</p>
-      </div>
+    </div>
     </div>
 
     <footer>
       <!-- music -->
       <!-- copyright 2021 Anaïs Engler -->
     </footer>
+
+    <div class="whereis">
+        <h2>Where is</h2>
+        <p class="city">Colmar</p>
+    </div>
 
     <div class="hintBtn">
       <img class="imghint" src="img/hint2.jpg" alt="hint" />
@@ -62,27 +68,26 @@
     <div class="hint">
       <p class="ctab">x</p>
       <div class="flexcont">
-        <img class="imghint" src="img/hint2.jpg" alt="hint" />
-        <div >
+
+        <div>
         <h2>HINT</h2>
-        <p>Colmar is world wide famous for its Christmas market.</p>
+        <p class="hintTxt"></p>
         </div>
       </div>
     </div>
 
+  
+
     <div class="goodChoice">
       <h2>GOOD CHOICE ✔️</h2>
-      <img class="imgpop" src="img/colmar1.jpg" />
-      <p>
-        You found Colmar! Located close to the German border, the city is world
-        wide famous for its beautiful Christmas markets.
-      </p>
+      <img class="imgpop"/>
+      <p class="gtxt"></p>
       <p class="btn">NEXT</p>
     </div>
 
     <div class="wrongChoice">
       <h2>WRONG CHOICE ✖️</h2>
-      <p>You found Metz... But not Colmar!</p>
+      <p class="wtxt"></p>
       <p class="btn">NEXT</p>
     </div>
 

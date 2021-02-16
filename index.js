@@ -1,67 +1,120 @@
-const scenario1 = [
-    {cityName : "Colmar", 
-     x: 640,
-     y: 370,
-     cityText : "Congrats! You found Colmar! Located close to the German border, the city is world wide famous for its beautiful Christmas markets.",
-     img : "colmar.jpg",
+const scenari = [ 
+  [
+    {
+     cityName : "Colmar", 
+     x: 635,
+     y: 390,
+     hint : "Colmar is world wide famous for its Christmas market.",
+     choice : true,
+     cityText : "Congrats! You found Colmar! Located close to the German border, the city is world wide famous for its beautiful Christmas market.",
+     img : "img/colmar1.jpg",
     },
-    {cityName : "Metz",
-    x: 590,
-    y: 418,
-    cityText : "Wrong choice! Here is Metz...",
+    {
+     cityName : "Metz",
+     x: 585,
+     y: 428,
+     choice : false,
+     cityText : "You found Metz... But not Colmar!",
     },
-    {cityName : "Auxerre",
-    x: 500,
-    y: 340,
-    cityText : "Wrong choice! Here is Auxerre...",
+    {
+     cityName : "Auxerre",
+     x: 500,
+     y: 360,
+     choice : false,
+     cityText : "You found Auxerre... But not Colmar!",
+    }
+    ],
+  [
+    {
+     cityName : "Blois",
+     x: 360,
+     y: 320,
+     hint : "Blois used to be the be the royal residency of several French kings.",
+     choice : true,
+     cityText : "Congrats! You found Blois! Heart of the Loire Valley, it has a rich heritage. For example, The Château de Blois is famous for its four architectural styles and its staircase. ",
+     img : "img/blois.jpg"
     },
-];
+    {
+     cityName : "Limoges",
+     x: 385,
+     y: 240,
+     choice : false,
+     cityText : "You found Limoges... But not Blois!",
+    },
+    {
+     cityName : "Angers",
+     x: 265,
+     y: 335,
+     choice : false,
+     cityText : "You found Angers... But not Blois!",
+    }],
+    [
+    {
+     cityName : "Cassis",
+     x: 565,
+     y: 85,
+     hint :"Cassis is located near to the third biggest French city.",
+     choice : true,
+     cityText : "Congrats! You found Cassis! Known for the beautiful scenery of its rocky inlets, the Calanques, Cassis is located near Marseille. ",
+     img : "img/cassis.jpg"
+    },
+    {
+     cityName : "Montpellier",
+     x: 490,
+     y: 100,
+     choice: false,
+     cityText : "You found Montpellier... But not Cassis!",
+    },
+    {
+     cityName : "Cannes",
+     x: 620,
+     y: 100,
+     choice : false,
+     cityText : "You found Cannes... But not Cassis!",
+    }]
+]
 
-const scenario2 = [
-    {cityName : "Blois",
-    x: 360,
-    y: 300,
-    cityText : "Congrats! You found Blois! Heart of the Loire Valley, it has a rich heritage. For example, The Château de Blois is famous for its four architectural styles and its staircase. ",
-    img : "blois.jpg"
-},
-    {cityName : "Limoges",
-    x: 385,
-    y: 220,
-    cityText : "Wrong choice! Here is Limoges...",
-},
-    {cityName : "Angers",
-    x: 265,
-    y: 315,
-    cityText : "Wrong choice! Here is Angers...",
-},
-];
 
-const scenario3 = [
-    {cityName : "Cassis",
-    x: 575,
-    y: 65,
-    cityText : "Congrats! You found Cassis! Known for the beautiful scenery of its rocky inlets, the Calanques, Cassis is located near Marseille ",
-    img : "cassis.jpg"
-},
-    {cityName : "Montpellier",
-    x: 490,
-    y: 78,
-    cityText : "Wrong choice! Here is Montpellier...",
-},
-    {cityName : "Cannes",
-    x: 630,
-    y: 80,
-    cityText : "Wrong choice! Here is Cannes...",
-},
-];
 
-const hint1 = "Colmar is world wide famous for its Christmas market";
-const hint2 = "Blois used to be the be the royal residency of several French kings";
-const hint3 = "Cassis is located near to the third biggest French city";
+let startmenu = document.querySelector("#startmenu");
+let choiceList = document.querySelectorAll(".choice");
+let btnStart = document.querySelector("#startmenu :nth-child(2)");
+let btnHtp = document.querySelector("#startmenu :nth-child(3)");
+let htp = document.querySelector(".htp");
+let ctabHtp = document.querySelector(".htp .ctab");
+let playHtp = document.querySelector(".htp .btn");
+let btnHint = document.querySelector(".hintBtn");
+let ctabHint = document.querySelector(".hint .ctab");
+let ch1 = document.querySelector("#ch1");
+let ch2 = document.querySelector("#ch2");
+let ch3 = document.querySelector("#ch3");
 
-const choiceList = document.querySelectorAll(".choice");
+//FUNCTIONS
 
-function printScenario (scenario, hint) {
+function printPopUp(popup){
+    popup.style.display = "block"
+}
+
+function displayAnswer(answerch,answertxt, img){
+if (answerch === true){
+    let goodChoice = document.querySelector(".goodChoice")
+    goodChoice.style.display = "block";
+
+    let gimg = document.querySelector(".imgpop")
+    gimg.setAttribute("src", img);
+
+    let gtxt = document.querySelector(".gtxt");
+    gtxt.innerHTML = `${answertxt}`
+} else {
+    let wrongChoice = document.querySelector(".wrongChoice");
+    wrongChoice.style.display = "block";
+    let wtxt = document.querySelector(".wtxt");
+    wtxt.innerHTML = `${answertxt}`
+}
+}
+
+function printScenario (scenario) {
+    
     let ch1 = document.querySelector("#ch1");
     let ch2 = document.querySelector("#ch2");
     let ch3 = document.querySelector("#ch3");
@@ -75,18 +128,80 @@ function printScenario (scenario, hint) {
     ch3.style.bottom = scenario[2].y + "px";
     ch3.style.left = scenario[2].x + "px";
 
+    
+    let btnHint = document.querySelector(".hintBtn");
+    btnHint.style.display = "block";
+
+    btnHint.addEventListener('click', () =>{
+        let hint = document.querySelector(".hint");
+        hint.style.display = "block"
+        
+        let hintTxt = document.querySelector(".hintTxt");
+        let displayHint = scenario[0].hint
+        hintTxt.innerHTML = `<p class="hintTxt">${displayHint}</p>`
+    });
+
+    let whereis = document.querySelector(".whereis");
+    whereis.style.display = "block";
+
+    let cityName = scenario[0].cityName
+    whereis.innerHTML = `<h2>Where is</h2>
+    <p class="cityName">${cityName}</p>`
+
+    let nbofrounds = document.querySelector(".nbofrounds");
+    nbofrounds.style.display = "block";
+
+    ch1.addEventListener('click', () => {
+        displayAnswer(scenario[0].choice, scenario[0].cityText, scenario[0].img);
+    });
+    
+    ch2.addEventListener('click', () => {
+        displayAnswer(scenario[1].choice, scenario[1].cityText, scenario[1].img);
+    });
+    
+    ch3.addEventListener('click', () => {
+        displayAnswer(scenario[2].choice, scenario[2].cityText, scenario[2].img);
+    });
 
 };
 
-function handleClick(popup){
-        popup.style.display = none
-        console.log('click', popup)
-};
 
 
-let htp = document.querySelector("startmenu :nth-child(3)");
+// addEventListener
 
-htp.addEventListener('click', handleClick);
+
+
+btnStart.addEventListener('click', () => {
+    let startmenu = document.querySelector("#startmenu");
+    startmenu.style.display = "none";
+
+    printScenario(scenari[2]);
+});
+
+btnHtp.addEventListener('click', () => {
+    printPopUp(htp)
+});
+
+ctabHtp.addEventListener('click', () =>{
+    let htp = document.querySelector(".htp");
+    htp.style.display = "none"
+});
+
+playHtp.addEventListener('click', () =>{
+    let startmenu = document.querySelector("#startmenu");
+    startmenu.style.display = "none";
+    htp.style.display = "none"
+
+    printScenario(scenari[0])
+})
+
+
+
+ctabHint.addEventListener('click', () =>{
+    let hint = document.querySelector(".hint");
+    hint.style.display = "none"
+});
+
 
 
 // first : title page
