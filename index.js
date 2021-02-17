@@ -1,6 +1,58 @@
 const scenari = [
   [
     {
+      cityName: "Lyon",
+      x: 520,
+      y: 260,
+      hint: "At the time of the Roman Empire, Lyon was the capital city of the Gauls.",
+      choice: true,
+      cityText:
+        "Congrats! You found Lyon! At the time of the Roman Empire, it was the capital city of the Gauls. Today, it's the second-biggest city of France.",
+      img: "img/lyon.jpeg",
+    },
+    {
+      cityName: "Grenoble",
+      x: 550,
+      y: 195,
+      choice: false,
+      cityText: "You found Grenoble... But not Lyon!",
+    },
+    {
+      cityName: "Clermont-Ferrand",
+      x: 450,
+      y: 270,
+      choice: false,
+      cityText: "You found Clermont-Ferrand... But not Lyon!",
+    },
+  ],
+  [
+    {
+      cityName: "Biarritz",
+      x: 225,
+      y: 90,
+      hint: "Biarritz is a touristic destination known for its surfing culture.",
+      choice: true,
+      cityText:
+        "Congrats! You found Biarritz! Located close to the Spanish border, the city is a touristic destination since 1800. More recently, it is known for its surfing culture.",
+      img: "img/biarritz.jpg",
+    },
+    {
+      cityName: "Bordeaux",
+      x: 260,
+      y: 193,
+      choice: false,
+      cityText: "You found Bordeaux... But not Biarritz!",
+    },
+    {
+      cityName: "Périgueux",
+      x: 330,
+      y: 200,
+      choice: false,
+      cityText: "You found Périgueux... But not Biarritz!",
+    },
+  ],
+  [
+    {
       cityName: "Colmar",
       x: 635,
       y: 390,
@@ -30,12 +82,11 @@ const scenari = [
       cityName: "Blois",
       x: 360,
       y: 320,
-      hint:
-        "Blois used to be the royal residency of several French kings.",
+      hint: "Blois used to be the royal residency of several French kings.",
       choice: true,
       cityText:
-        "Congrats! You found Blois! Heart of the Loire Valley, it has a rich heritage. For example, The Château de Blois is famous for its four architectural styles and its staircase. ",
-      img: "img/blois.jpg",
+        "Congrats! You found Blois! Its castle is famous for its four architectural styles and its staircase. ",
+      img: "img/blois2.jpg",
     },
     {
       cityName: "Limoges",
@@ -61,7 +112,7 @@ const scenari = [
       choice: true,
       cityText:
         "Congrats! You found Cassis! Known for the beautiful scenery of its rocky inlets, the Calanques, Cassis is located near Marseille. ",
-      img: "img/cassis.jpg",
+      img: "img/cassis-calanque1.jpg",
     },
     {
       cityName: "Montpellier",
@@ -94,6 +145,9 @@ let btnNextw = document.querySelector(".wrongChoice .btn");
 let ch1 = document.querySelector("#ch1");
 let ch2 = document.querySelector("#ch2");
 let ch3 = document.querySelector("#ch3");
+let btnSound = document.querySelector(".sound");
+
+let soundon = true;
 
 const flow = new Flow(scenari);
 
@@ -107,6 +161,11 @@ function displayAnswer(answerch, answertxt, img) {
   if (answerch) {
     let goodChoice = document.querySelector(".goodChoice");
     goodChoice.style.display = "block";
+
+    let soundYes = document.querySelector("#yes");
+    if (soundon){
+    soundYes.play()
+    };
 
     let gimg = document.querySelector(".imgpop");
     gimg.setAttribute("src", img);
@@ -131,6 +190,7 @@ function printScenario(scenario) {
   
    let gameboard = document.querySelector("#gameboard")
    gameboard.innerHTML = `<img class="map" src="img/mapFrance.png" alt="France" />
+                          <audio id="soundStart" src="sounds/neutral-sound.mp3"></audio>
                           <div id="ch1" class="choice"> 
                             <img src="img/pointer.png" />
                         </div>
@@ -140,6 +200,11 @@ function printScenario(scenario) {
                         <div id="ch3" class="choice">
                              <img src="img/pointer.png" />
                         </div>`
+
+let soundStart = document.querySelector("#soundStart");
+if (soundon){
+soundStart.play()
+};
 
 let ch1 = document.querySelector("#ch1");
 let ch2 = document.querySelector("#ch2");
@@ -202,6 +267,7 @@ ch3.addEventListener("click", () => {
 // addEventListener
 
 btnStart.addEventListener("click", () => {
+  
   let startmenu = document.querySelector("#startmenu");
   startmenu.style.display = "none";
 
@@ -209,14 +275,20 @@ btnStart.addEventListener("click", () => {
     let goodChoice = document.querySelector(".goodChoice");
     goodChoice.style.display = "none";
 
-    printScenario(flow.nextScenario());
+    let sc = flow.nextScenario();
+    if (sc !=0 ){
+    printScenario(sc);
+    };
   });
 
   btnNextw.addEventListener("click", () => {
     let wrongChoice = document.querySelector(".wrongChoice");
     wrongChoice.style.display = "none";
 
-    printScenario(flow.nextScenario());
+    let sc = flow.nextScenario();
+    if (sc !=0 ){
+    printScenario(sc);
+    };
   });
 
   printScenario(flow.nextScenario());
@@ -232,7 +304,6 @@ ctabHtp.addEventListener("click", () => {
 });
 
 
-
 playHtp.addEventListener("click", () => {
   let startmenu = document.querySelector("#startmenu");
   startmenu.style.display = "none";
@@ -241,15 +312,21 @@ playHtp.addEventListener("click", () => {
   btnNextg.addEventListener("click", () => {
     let goodChoice = document.querySelector(".goodChoice");
     goodChoice.style.display = "none";
-
-    printScenario(flow.nextScenario());
+    
+    let sc = flow.nextScenario();
+    if (sc !=0 ){
+    printScenario(sc);
+    };
   });
 
   btnNextw.addEventListener("click", () => {
     let wrongChoice = document.querySelector(".wrongChoice");
     wrongChoice.style.display = "none";
 
-    printScenario(flow.nextScenario());
+    let sc = flow.nextScenario();
+    if (sc !=0 ){
+    printScenario(sc);
+    };
   });
 
   printScenario(flow.nextScenario());
@@ -260,11 +337,15 @@ ctabHint.addEventListener("click", () => {
   hint.style.display = "none";
 });
 
-// first : title page
-// howToPlay() = afficher pop up qui explique les règles du jeu
-//click on start > load printBackground() = supprimer l'accueil, afficher la carte vite, le "where is", le hint
-// printScenario (scenario, hint) x5 = afficher nom de la ville, remplir le hint, afficher les positions, afficher le 1/5 correspondant
-//+ afficher les pop ups dans des fonctions séparées popUp(objet qui correspond à la ville ou elle a été cliqué
-// + fonction hintPopUp()
-//printEndGame() = afficher pop up de fin avec score
-// bouton : play again qui refresh la page
+btnSound.addEventListener('click', () => {
+  if (soundon) {
+  btnSound.innerHTML = `<img class="imgsound" src="sounds/sound-off.png"></img>`
+  soundon = false
+} else {
+  btnSound.innerHTML = `<img class="imgsound" src="sounds/sound-on.png"></img>`
+  soundon = true
+}
+  
+
+});
+

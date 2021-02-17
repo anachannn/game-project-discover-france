@@ -11,6 +11,7 @@ nextScenario(){
     this.currentScenario += 1;
     if (this.currentScenario === this.scenari.length){
         this.endGame()
+        return 0;
     } else {
     return this.scenari[this.currentScenario]
     };
