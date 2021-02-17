@@ -1,261 +1,299 @@
 body {
-    font-family : nunito;
-    box-sizing:border-box;
-    margin:10px;
-
+  font-family: nunito;
+  box-sizing: border-box;
+  margin: 10px;
 }
 
 /* Game board */
 
-.title{
-    border-bottom:1px solid black;
-    font-size: 20px;
+.title {
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  font-family: Courier New, monospace;
+  
 }
 
-.nameGame{
-    padding-bottom:1px;
-    align-items:center;
-    align-content: space-between;
-    
+.nameGame {
+  padding-bottom: 1px;
+  align-items: center;
+  align-content: space-between;
+  margin-bottom: 5px;
+  margin-top:30px;
 }
 
-/* .frflag{
-    width:30px;
-    height:30px;
-    align-items:center;
-    padding-right:20px;
-    align-content: space-between;
-} */
-
-#gameboard{
-    position:relative;
+#gameboard {
+  position: relative;
 }
 
 .map {
-    width : 800px;
-    height: auto; 
+  width: 800px;
+  height: auto;
 }
 
 .choice > img {
-    width:50px;
-    height:50px;
-    text-align: center;
+  width: 50px;
+  height: 50px;
+  text-align: center;
 }
 
-#ch1{
-    background-color: white;
-    border-bottom: 4px solid black;
-    position:absolute; 
-    display:none;
+#ch1,
+#ch2,
+#ch3 {
+  background-color: white;
+  border-bottom: 4px solid black;
+  position: absolute;
+  display: none;
 }
 
-#ch1:hover{
-    border-color: forestgreen;
-}
-
-
-#ch2{
-    background-color: white;
-    border-bottom: 4px solid black;
-    position:absolute; 
-    display:none;
-}
-#ch2:hover{
-    border-color: forestgreen;
-}
-
-#ch3{
-    background-color: white;
-    border-bottom: 4px solid black;
-    position:absolute;  
-    display:none;
-}
-
-#ch3:hover{
-    border-color: forestgreen;
+#ch1:hover,
+#ch2:hover,
+#ch3:hover {
+  border-color: forestgreen;
 }
 
 /* Common items */
 
 .btn {
-    width: 200px;
-    height:10px;
-    border:1.5px solid black;
-    padding:13px 15px 30px 15px;
-    text-align:center;
-    font-weight:bold;
-    box-shadow: 3px 5px 5px lightgray;
-    display:inline-block;
- }
- 
- .ctab{
-     border: 1px solid black;
-     border-radius:50px;
-     font-weight: bold;
-     width:22px;
-     margin-left:350px;
-     box-shadow: 3px 5px 5px lightgray; 
- }
+  width: 200px;
+  height: 10px;
+  background-color: rgba(252, 85, 24, 0.87);
+  box-shadow: 4px 7px 7px rgba(251, 59, 73, 0.2);
+  color : white;
+  padding: 13px 15px 30px 15px;
+  text-align: center;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn:hover {
+  background-color: rgba(30, 139, 30, 0.753);
+  box-shadow: 4px 7px 7px rgba(120, 211, 120, 0.705);
+}
+
+.ctab {
+  border-radius: 70px;
+  font-weight: bold;
+  width: 22px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 350px;
+  box-shadow: 3px 5px 5px lightgray;
+  background-color: #f9f5f5;
+}
+
+.ctab:hover {
+  background-color: #d6c8c873;
+}
 
 /* Start menu */
 
-#startmenu{
-    position:relative;
-    bottom: 420px;
-    left:300px;
-    width:230px;
-    margin-left:20px;
-    text-align: center;  
+#startmenu {
+  position: relative;
+  bottom: 420px;
+  left: 300px;
+  width: 230px;
+  margin-left: 20px;
+  text-align: center;
+  animation: cssAnimation 0s 1s forwards;
+  visibility: hidden;
 }
 
-#startmenu > img{
-    width:70px;
-    height:auto;
-    display:inline-block;
+@keyframes cssAnimation {
+  to {
+    visibility: visible;
+  }
+}
+#startmenu > img {
+  width: 70px;
+  height: auto;
+  display: inline-block;
 }
 
 #startmenu .btn {
-   margin-bottom:8px;
-   margin-top: 10px;
-   width:170px;
+  font-size: 18px;
+  margin-bottom: 8px;
+  margin-top: 10px;
+  width: 170px;
 }
 
 .htp {
- width : 400px;
- height : 250px;
- border: 1px solid black;
- background-color: white;
- font-weight:bold;
- box-shadow: 3px 5px 5px lightgray;
- text-align:center;
- display:none;
- position:relative;
- bottom: 560px;
- left : 240px;
- z-index:1;
+  width: 380px;
+  height: 250px;
+  border: 1px solid black;
+  background-color: white;
+  font-weight: bold;
+  padding: 20px;
+  box-shadow: 3px 5px 5px #f9f5f5;
+  text-align: center;
+  display: none;
+  position: relative;
+  bottom: 560px;
+  left: 230px;
+  z-index: 1;
 }
 
 .htp h3 {
-    color:brown 
+  width: 300px;
+  display: inline-block;
+  color: brown;
+  font-size: 25px;
+  font-style: ;
+  padding: 5px 0px 5px 0px;
+  margin-top: 15px;
+  margin-bottom: 0px;
 }
 
-/* During the game */
+/* To display on the gameboard when printing each scenario */
 
-.whereis{
-    position:relative;
-    width:150px;
-    bottom:580px;
-    left:10px;
-    display:none;
-
+.whereis {
+  position: relative;
+  width: 150px;
+  bottom: 580px;
+  left: 10px;
+  display: none;
 }
-.whereis > h2{
-    font-size:30px;
-    margin-bottom:0px;
-}
-
-.whereis > p{
-    border-bottom:1px solid black;
-    margin-top:5px;
-    margin-bottom:5px;
-    font-size: 25px;
+.whereis > h2 {
+  font-size: 30px;
+  margin-bottom: 0px;
 }
 
-.goodChoice{
-    width: 400px;
-    height:480px;
-    border: 1px solid black;
+.whereis > p {
+  border-bottom: 1px solid black;
+  background-color:  #f9f5f5ec;
+  padding-right: 20px;
+  padding-left: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 25px;
+}
+
+
+.nbofrounds {
+  width: 75px;
+  text-align: center;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: bold;
+  display: none;
+  position: relative;
+  bottom: 610px;
+  left: 105px;
+}
+
+.imghint {
+    width: 100px;
+    height: 80px;
     box-shadow: 3px 5px 5px lightgray;
-    text-align:center;
-    box-sizing: border-box;
-    padding-left:10px;
-    padding-right:10px;
-    display:none;
+}
+  
+.imghint:hover{
+      box-shadow: 4px 7px 7px rgb(248, 242, 191);
+}
+  
+
+.hintBtn {
+  width: 100px;
+  display: none;
+  position: relative;
+  bottom: 400px;
+  left: 70px;
 }
 
-.imgpop{
-    width:300px;
-    height:200px;
-    box-shadow: 3px 5px 5px lightgray;
+.hint {
+  width: 250px;
+  height: 180px;
+  border: 1px solid black;
+  box-shadow: 3px 5px 5px #f9f5f5;
+  box-sizing: border-box;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  position: relative;
+  display: none;
+  bottom: 570px;
+  left: 15px;
+  z-index: 1;
 }
 
-.wrongChoice{
-    width: 400px;
-    height:200px;
-    border: 1px solid black;
-    box-shadow: 3px 5px 5px lightgray;
-    text-align:center;
-    padding-top:20px;
-    display:none;
+.hintTitle {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  color: brown;
 }
 
-.end{
-    width: 400px;
-    height:240px;
-    border: 1px solid black;
-    box-shadow: 3px 5px 5px lightgray;
-    text-align:center;
-    padding-top:20px;
-    display:none;
-}
-.hintBtn{
-    width:100px;
-    display:none;
-    position:relative;
-    bottom:280px;
-    left:70px;
+.hint .ctab {
+  margin: 0px;
+  margin-top: 10px;
+  margin-left: 200px;
 }
 
-.hint{
-    width: 250px;
-    height:180px;
-    border: 1px solid black;
-    box-shadow: 3px 5px 5px lightgray;
-    box-sizing:border-box;
-    text-align:center;
-    padding-left:10px;
-    padding-right:10px;
-    background-color: white;
-    position: relative;
-    display:none;
-    bottom: 500px;
-    left: 30px;
-    z-index: 1;
+
+/* Good choice, wrong choice */
+
+.goodChoice {
+  width: 400px;
+  height: 480px;
+  border: 1px solid black;
+  box-shadow: 3px 5px 5px lightgray;
+  text-align: center;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: none;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  bottom: 750px;
+  left: 240px;
 }
 
-.hint > h2 {
-   margin:0px;
-    
+.goodChoice > h2 {
+  color: brown;
 }
 
-.hint .ctab{
-    margin:0px;
-    margin-top:10px;
-    margin-left:200px;
+.imgpop {
+  width: 300px;
+  height: 200px;
+  box-shadow: 3px 5px 5px lightgray;
 }
 
-.imghint{
-    width:100px;
-    height:80px;
-    box-shadow: 3px 5px 5px lightgray;
-
+.wrongChoice {
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 3px 5px 5px lightgray;
+  text-align: center;
+  padding-top: 20px;
+  background-color: white;
+  display: none;
+  position: relative;
+  z-index: 1;
+  bottom: 650px;
+  left: 240px;
 }
 
-.nbofrounds{
-    font-weight: bold;
-    border : 1px solid black;
-    border-radius:50px;
-    width: 75px;
-    text-align:center;
-    padding:2px;
-    box-shadow: 3px 5px 5px lightgray;
-    display:none;
-    position:relative;
-    bottom:240px;
-    left:80px;
+.wrongChoice > h2 {
+  color: brown;
 }
 
-/* do a class window to clear code and avoid repeatition
-add hover on buttons
-position relative button
-style title */
+/* End game */
+
+.end {
+  width: 400px;
+  height: 240px;
+  border: 1px solid black;
+  box-shadow: 3px 5px 5px lightgray;
+  text-align: center;
+  padding-top: 20px;
+  display: none;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+  bottom: 670px;
+  left: 240px;
+}
+
+.end > h2 {
+  color: brown;
+}

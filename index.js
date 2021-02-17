@@ -31,7 +31,7 @@ const scenari = [
       x: 360,
       y: 320,
       hint:
-        "Blois used to be the be the royal residency of several French kings.",
+        "Blois used to be the royal residency of several French kings.",
       choice: true,
       cityText:
         "Congrats! You found Blois! Heart of the Loire Valley, it has a rich heritage. For example, The Château de Blois is famous for its four architectural styles and its staircase. ",
@@ -231,12 +231,28 @@ ctabHtp.addEventListener("click", () => {
   htp.style.display = "none";
 });
 
+
+
 playHtp.addEventListener("click", () => {
   let startmenu = document.querySelector("#startmenu");
   startmenu.style.display = "none";
   htp.style.display = "none";
 
-  printScenario(scenari[0]);
+  btnNextg.addEventListener("click", () => {
+    let goodChoice = document.querySelector(".goodChoice");
+    goodChoice.style.display = "none";
+
+    printScenario(flow.nextScenario());
+  });
+
+  btnNextw.addEventListener("click", () => {
+    let wrongChoice = document.querySelector(".wrongChoice");
+    wrongChoice.style.display = "none";
+
+    printScenario(flow.nextScenario());
+  });
+
+  printScenario(flow.nextScenario());
 });
 
 ctabHint.addEventListener("click", () => {

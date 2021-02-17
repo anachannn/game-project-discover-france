@@ -10,65 +10,60 @@
     <script src="flow.js"></script>
   </head>
   <body>
+
     <header class="title">
-      <!-- <img class="frflag" src="img/frFlag1.png"> -->
-      <h1 class="nameGame">Discover France</h1>
+      <h1 class="nameGame"> 🔸 Discover France</h1>
     </header>
 
     <div id="gameboard">
         <img class="map" src="img/mapFrance.png" alt="France" />
-    
-       
 
     </div>
-
-   
 
     <div id="startmenu">
       <img src="img/pointer.png" />
       <h2 class="btn">START</h2>
       <h2 class="btn">How to play</h2>
     </div>
+
     <div class="htp">
-        <p class="ctab">x</p>
-        <h3>How to play</h3>
-        <p>
+      <p class="ctab">x</p>
+      <h3>How to play</h3>
+       <p>
           How well do you know France and its cities? Try to guess each city
           location by clicking on the right spot.
         </p>
         <p class="btn">PLAY</p>
     </div>
 
-    <footer>
-      <!-- music -->
-      <!-- copyright 2021 Anaïs Engler -->
-    </footer>
+<!-- To display on the gameboard when printing each scenario -->
 
     <div class="whereis">
         <h2>Where is</h2>
         <p class="city">Colmar</p>
     </div>
 
-    <div class="hintBtn">
-      <img class="imghint" src="img/hint2.jpg" alt="hint" />
+    <div class="nbofrounds">
+        <p></p>
     </div>
 
-    <div class="nbofrounds">
-      <h2>1 of 3</h2>
+    <div class="hintBtn">
+      <img class="imghint" src="img/hint2.jpg" alt="hint" />
     </div>
 
     <div class="hint">
       <p class="ctab">x</p>
       <div class="flexcont">
 
-        <div>
-        <h2>HINT</h2>
-        <p class="hintTxt"></p>
+          <div>
+          <h2 class="hintTitle">Hint</h2>
+           <p class="hintTxt"></p>
+          </div>
+       
         </div>
-      </div>
     </div>
 
-  
+<!-- Good choice, wrong choice -->
 
     <div class="goodChoice">
       <h2>GOOD CHOICE ✔️</h2>
@@ -83,6 +78,8 @@
       <p class="btn">NEXT</p>
     </div>
 
+<!-- End game -->
+
     <div id="congrats" class="end">
       <h2>CONGRATS 🌟</h2>
       <h3>You know France better than Parisians!</h3>
@@ -96,5 +93,11 @@
       <p class="scoreTA"></p>
       <p class="btn">PLAY AGAIN</p>
     </div>
+
+    <!-- <div class="footer">
+      <p>music</p>
+      <p>copyright 2021 Anaïs Engler</p>
+    </div> -->
+
   </body>
 </html>
