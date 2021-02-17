@@ -81,7 +81,7 @@ const scenari = [
     {
       cityName: "Blois",
       x: 360,
-      y: 320,
+      y: 340,
       hint: "Blois used to be the royal residency of several French kings.",
       choice: true,
       cityText:
@@ -91,7 +91,7 @@ const scenari = [
     {
       cityName: "Limoges",
       x: 385,
-      y: 240,
+      y: 220,
       choice: false,
       cityText: "You found Limoges... But not Blois!",
     },

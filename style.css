@@ -146,9 +146,9 @@ body {
 /* To display on the gameboard when printing each scenario */
 
 .whereis {
-  position: relative;
+  position: absolute;
   width: 150px;
-  bottom: 580px;
+  bottom: 430px;
   left: 10px;
   display: none;
 }
@@ -175,17 +175,17 @@ body {
   font-size: 12px;
   font-weight: bold;
   display: none;
-  position: relative;
-  bottom: 610px;
+  position: absolute;
+  bottom: 410px;
   left: 105px;
 }
 
 .imgsound{
     width:30px;
     height:30px;
-    position:relative;
-    bottom:670px;
-    left:750px;
+    position:absolute;
+    bottom:450px;
+    left: 750px;
     box-shadow: 3px 5px 5px lightgray;
 
 }
@@ -208,8 +208,8 @@ body {
 .hintBtn {
   width: 100px;
   display: none;
-  position: relative;
-  bottom: 400px;
+  position: absolute;
+  bottom: 170px;
   left: 70px;
 }
 
@@ -223,10 +223,10 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   background-color: white;
-  position: relative;
+  position: absolute;
   display: none;
-  bottom: 570px;
-  left: 15px;
+  bottom:120px;
+  left:15px;
   z-index: 1;
 }
 
@@ -258,7 +258,7 @@ body {
   background-color: white;
   position: relative;
   z-index: 1;
-  bottom: 750px;
+  bottom: 520px;
   left: 240px;
 }
 
@@ -283,7 +283,7 @@ body {
   display: none;
   position: relative;
   z-index: 1;
-  bottom: 650px;
+  bottom: 420px;
   left: 240px;
 }
 
@@ -304,7 +304,7 @@ body {
   background-color: white;
   position: relative;
   z-index: 1;
-  bottom: 670px;
+  bottom: 440px;
   left: 240px;
 }
 
