@@ -173,9 +173,9 @@ function displayAnswer(answerch, answertxt, img) {
     let gtxt = document.querySelector(".gtxt");
     gtxt.innerHTML = `${answertxt}`;
 
-    console.log("score before : ", flow.score);
+
     flow.score += 1;
-    console.log(`Hello + ${flow.score}`);
+    
   } else {
     let wrongChoice = document.querySelector(".wrongChoice");
     wrongChoice.style.display = "block";

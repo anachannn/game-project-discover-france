@@ -23,7 +23,7 @@ endGame(){
         congrats.style.display = "block"
 
         let displayScoreC = document.querySelector(".scoreC")
-        displayScoreC.innerHTML = `Your score is : ${this.score}`
+        displayScoreC.innerHTML = `Your score is : ${this.score}/${this.scenari.length}`
          
 
         let btnEnd = document.querySelector("#congrats .btn");
@@ -36,7 +36,7 @@ endGame(){
         tryagain.style.display = "block"
 
         let displayScoreTA = document.querySelector(".scoreTA")
-        displayScoreTA.innerHTML = `Your score is : ${this.score}`
+        displayScoreTA.innerHTML = `Your score is : ${this.score}/${this.scenari.length}`
     
 
         let btnEnd = document.querySelector("#tryagain .btn");
