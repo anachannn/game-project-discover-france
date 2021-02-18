@@ -154,7 +154,6 @@ body {
 .whereis {
   position: absolute;
   width: 150px;
-  /* bottom: 430px; */
   top: 75px;
   left: 15px;
   display: none;
