@@ -144,6 +144,13 @@ body {
 
 /* To display on the gameboard when printing each scenario */
 
+.footertxt{
+    position:absolute;
+    bottom:-75px;
+    left:350px;
+    font-size: 13px;
+}
+
 .whereis {
   position: absolute;
   width: 150px;
@@ -176,15 +183,15 @@ body {
   display: none;
   position: absolute;
   bottom: 410px;
-  left: 105px;
+  left: 110px;
 }
 
 .imgsound{
     width:30px;
     height:30px;
     position:absolute;
-    bottom:450px;
-    left: 750px;
+    bottom:360px;
+    left: 743px;
     box-shadow: 3px 5px 5px lightgray;
 
 }
@@ -290,6 +297,25 @@ body {
   color: brown;
 }
 
+.wrongChoiceTimesup{
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 3px 5px 5px lightgray;
+  text-align: center;
+  padding-top: 20px;
+  background-color: white;
+  display:none;
+  position: relative;
+  z-index: 1;
+  bottom: 420px;
+  left: 240px;
+}
+
+.wrongChoiceTimesup > h2 {
+  color: brown;
+}
+
 /* End game */
 
 .end {
@@ -310,3 +336,56 @@ body {
 .end > h2 {
   color: brown;
 }
+
+/* Timer */
+
+.base-timer {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    display:none;
+    bottom: 412px;
+    left:722px;
+    
+}
+  
+.base-timer__circle {
+    fill: none;
+    stroke: none;
+}
+  
+
+.base-timer__path-elapsed {
+    stroke-width: 7px;
+    stroke: #f9f5f5ec;
+}
+
+.base-timer__label {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    
+    
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      
+    font-size: 15px;
+}
+
+.base-timer__path-remaining {
+    stroke-width: 7px;
+    stroke-linecap: round;  
+   
+    transform: rotate(90deg);
+    transform-origin: center;
+  
+    transition: 1s linear all;
+  
+    stroke:  rgba(30, 139, 30, 0.753);
+  }
+  
+.base-timer__svg {
+    transform: scaleX(-1);
+  }

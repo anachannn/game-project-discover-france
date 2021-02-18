@@ -131,6 +131,8 @@ const scenari = [
   ],
 ];
 
+// Variables ----------------------------------------------------------------------------------------
+
 let startmenu = document.querySelector("#startmenu");
 let choiceList = document.querySelectorAll(".choice");
 let btnStart = document.querySelector("#startmenu :nth-child(2)");
@@ -147,11 +149,16 @@ let ch2 = document.querySelector("#ch2");
 let ch3 = document.querySelector("#ch3");
 let btnSound = document.querySelector(".sound");
 
+
 let soundon = true;
+let timerapp = document.querySelector(".base-timer");
+let timeLimit = 15;
+let btnNexttup = document.querySelector(".wrongChoiceTimesup .btn")
 
 const flow = new Flow(scenari);
 
-//FUNCTIONS
+
+//FUNCTIONS ---------------------------------------------------------------------------------
 
 function printPopUp(popup) {
   popup.style.display = "block";
@@ -206,6 +213,9 @@ if (soundon){
 soundStart.play()
 };
 
+let timer = new Timer(timeLimit);
+timer.startTimer();
+
 let ch1 = document.querySelector("#ch1");
 let ch2 = document.querySelector("#ch2");
 let ch3 = document.querySelector("#ch3");
@@ -229,6 +239,8 @@ let ch3 = document.querySelector("#ch3");
     let hint = document.querySelector(".hint");
     hint.style.display = "block";
 
+    // timer.resetTimer();
+
     let hintTxt = document.querySelector(".hintTxt");
     let displayHint = scenario[0].hint;
     hintTxt.innerHTML = `<p class="hintTxt">${displayHint}</p>`;
@@ -243,20 +255,20 @@ let ch3 = document.querySelector("#ch3");
 
   let nbofrounds = document.querySelector(".nbofrounds");
   nbofrounds.style.display = "block";
-  nbofrounds.innerHTML = `${flow.currentScenario + 1} of ${scenari.length}`;
+  nbofrounds.innerHTML = `${flow.currentScenario + 1}/${scenari.length}`;
 
 ch1.addEventListener("click", () => {
-    console.log("btn1")
-  displayAnswer(scenario[0].choice, scenario[0].cityText, scenario[0].img);
+   timer.onTimesUp(); 
+   displayAnswer(scenario[0].choice, scenario[0].cityText, scenario[0].img);
 });
 
 ch2.addEventListener("click", () => {
-  console.log("btn2")
+  timer.onTimesUp(); 
   displayAnswer(scenario[1].choice, scenario[1].cityText, scenario[1].img);
 });
 
 ch3.addEventListener("click", () => {
-  console.log("btn3")
+  timer.onTimesUp(); 
   displayAnswer(scenario[2].choice, scenario[2].cityText, scenario[2].img);
 });
 
@@ -264,7 +276,7 @@ ch3.addEventListener("click", () => {
 
 
 
-// addEventListener
+// addEventListener ----------------------------------------------------------------------------
 
 btnStart.addEventListener("click", () => {
   
@@ -290,6 +302,16 @@ btnStart.addEventListener("click", () => {
     printScenario(sc);
     };
   });
+
+  btnNexttup.addEventListener("click", () => {
+    let timesuppopup = document.querySelector(".wrongChoiceTimesup");
+    timesuppopup.style.display = "none";
+
+    let sc = flow.nextScenario();
+    if (sc !=0 ){
+    printScenario(sc);
+    };
+  })
 
   printScenario(flow.nextScenario());
 });
@@ -329,6 +351,15 @@ playHtp.addEventListener("click", () => {
     };
   });
 
+  btnNexttup.addEventListener("click", () => {
+    let timesuppopup = document.querySelector(".wrongChoiceTimesup");
+    timesuppopup.style.display = "none";
+
+    let sc = flow.nextScenario();
+    if (sc !=0 ){
+    printScenario(sc);
+    };
+  });
   printScenario(flow.nextScenario());
 });
 
@@ -345,7 +376,5 @@ btnSound.addEventListener('click', () => {
   btnSound.innerHTML = `<img class="imgsound" src="sounds/sound-on.png"></img>`
   soundon = true
 }
-  
 
 });
-
