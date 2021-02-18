@@ -1,7 +1,7 @@
 <h2>My first project</h2>
 
 Our first project had to be game. I decided to create a geo quiz about French cities : <b>Discover France.</b>
-<br>The goal ? Choose the right location for each city between three locations displayed on the map.
+<br>The goal ? To choose the right location for each city between three locations displayed on the map.
 <br>For this project, I had to :
 - Organize my datas in a array of arrays of objects
 - Create a proper structure on HTML & link all the files
